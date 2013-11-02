@@ -1,0 +1,57 @@
+<rdf:RDF
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+	xmlns:w="http://weather.semantic.example.com/2013/10/weather-ont#"
+	xml:base="http://weather.semantic.example.com/weather#"
+	xmlns = "http://weather.semantic.example.com/weather#" >
+	
+	<w:WeatherObservation>
+	#if ( $observation.CreditURL )
+		<w:source rdf:resource="$observation.CreditURL"/>
+	#end
+	
+	#if ( $observation.ObservationTimeRfc822 )
+		<w:time>$observation.ObservationTimeRfc822</w:time>
+	#end
+	
+	#if ( $observation.Location )
+		<w:location>$observation.Location</w:location>
+	#end
+	
+	#if ( $observation.Latitude )
+		<w:latitude>$observation.Latitude</w:latitude>
+	#end
+	
+	#if ( $observation.Longitude )
+		<w:longitude>$observation.Longitude</w:longitude>
+	#end
+	
+	#if ( $observation.TempF )
+		<w:temperature_f rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">$observation.TempF</w:temperature_f>
+		##<w:temperature_f type="xsd:integer">$observation.TempF</w:temperature_f>
+	#end
+	
+	#if ( $observation.WindDir )
+		<w:windDirection>$observation.WindDir</w:windDirection>
+	#end
+	
+	#if ( $observation.WindMph )
+		<w:wind_mph rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">$observation.WindMph</w:wind_mph>
+	#end
+		
+	#if ( $observation.WindGustMph != "NA" && $observation.WindGustMph )
+		<w:wind_gust_mph rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">$observation.WindGustMph</w:wind_gust_mph>
+	#end
+		
+	#if( $observation.Weather )
+		<w:weatherDescription>$observation.Weather</w:weatherDescription>
+	#end
+		
+	#if ( $observation.CopyrightUrl )
+		<w:copyright rdf:resource="$observation.CopyrightUrl"/>
+	#end
+	
+	</w:WeatherObservation>
+</rdf:RDF>
