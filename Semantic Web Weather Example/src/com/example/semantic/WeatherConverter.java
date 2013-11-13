@@ -154,24 +154,7 @@ public class WeatherConverter {
 			e.printStackTrace();
 		}
 		
-		/* This will avoid shutting down after generating binding classes. 
-		try {
-			Process proc = Runtime.getRuntime().exec("java -cp jaxb-xjc-2.2.7.jar;jaxb-core-2.2.7.jar com.sun.tools.xjc.XJCFacade"
-													+ " " + arguments[0]
-													+ " " + arguments[1]
-													+ " " + arguments[2]
-													+ " " + arguments[3]
-													+ " " + arguments[4]);
-			InputStream err = proc.getErrorStream();
-			BufferedReader reader = new BufferedReader(new InputStreamReader(err));
-			String s = reader.readLine();
-			if (s != null)
-				System.err.println(s);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		 */
+		
 	}
 
 
